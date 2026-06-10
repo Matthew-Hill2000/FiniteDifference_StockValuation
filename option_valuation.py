@@ -175,7 +175,7 @@ class FiniteDiffAmericanOption:
         bond_old = np.copy(self.bond_values)
         bond_new = np.copy(bond_old)
 
-        # Step 1: Solve bond from T → T1
+        # Step 1: Solve bond from T -> T1
         for i in range(self.time_steps - 1, self.T1_index - 1, -1):
             A, d, lu = self.construct_bond_matrix(i, bond_old)
             bond_new = solve_banded(lu, A, d)
